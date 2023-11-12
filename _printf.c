@@ -26,7 +26,8 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			switch (*++format)
+			format = format + 1;
+			switch (*format)
 			{
 				case 'c':
 					c = va_arg(args, int);
@@ -38,7 +39,7 @@ int _printf(const char *format, ...)
 					while (str[len] != '\0');
 						len++;
 					write(1, str, len);
-					printed++;
+					printed = printed + len;
 					break;
 				case '%':
 					write(1, format, 1);
