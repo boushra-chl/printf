@@ -11,17 +11,17 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int printed;
+	int printed = 0;
 	char c;
-	char *str
+	char *str;
 	int len = 0;
 
 	va_start(args, format);
-	while (format != '\0')
+	while (*format != '\0')
 	{
-		if (format != '%')
+		if (*format != '%')
 		{
-			write(1, format, 1)
+			write(1, format, 1);
 				printed++;
 		}
 		else
@@ -30,12 +30,12 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(args, int);
-					write(1, &c, 1)
+					write(1, &c, 1);
 						printed++;
 					break;
 				case 's':
 					str = va_args(args, char *);
-					while (str[len] != '\0')
+					while (str[len] != '\0');
 						len++;
 					write(1, str, len);
 					printed++;
@@ -50,6 +50,6 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	return (i);
+	return (printed);
 }
 
