@@ -1,61 +1,49 @@
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
 
 /**
- * _printf - function that produces output according to format
- * @format: character string
+ * _printf - user defined printf
  *
- * Return: number of characters printed or 0
+ * @format: reads format specifiers
+ *
+ * Return: always 0
  */
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int printed = 0;
-	char c;
-	char *str;
-	int len = 0;
-
-	va_start(args, format);
-	if (*format == '\0')
+	int printed_chars = 0;
+	va_list ap;
+	va_start(ap, format);
+	
+	while (*format)
 	{
-		return (0);
-	}
-	while (*format != '\0')
-	{
-		if (*format != '%')
+		if (*format == '%')
 		{
-			write(1, format, 1);
-			printed++;
-		}
-		else
-		{
-			format++;
-			if (*format == 'c')
+			if (*++format == 'c')
 			{
-				c = va_arg(args, int);
-				write(1, &c, 1);
-				printed++;
+				printed_chars += putchar((char) va_arg(ap, int));
 			}
 			else if (*format == 's')
 			{
-				str = va_arg(args, char *);
-				while (str[len] != '\0')
-				{
-					len++;
-				}
-				write(1, str, len);
-				printed = printed + len;
+				printed_chars += puts((char *) va_arg(ap, char *));
 			}
 			else if (*format == '%')
 			{
-				write(1, format, 1);
-				printed++;
+				printed_chars += putchar('%');
+			}
+			else
+			{
 			}
 		}
-		format++;
+		
+		else
+		{
+			printed_chars += putchar(*format++);
+		}
 	}
-	va_end(args);
-	return (printed);
+	
+	va_end(ap);
+	
+	return printed_chars;
 }
 
