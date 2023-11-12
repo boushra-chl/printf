@@ -11,7 +11,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int printed = 0;
+	int printed;
 	char c;
 	char *str;
 	int len = 0;
@@ -22,35 +22,34 @@ int _printf(const char *format, ...)
 		if (*format != '%')
 		{
 			write(1, format, 1);
-				printed++;
+			printed++;
 		}
 		else
 		{
-			format = format + 1;
-			switch (*format)
-			{
-				case 'c':
-					c = va_arg(args, int);
-					write(1, &c, 1);
-						printed++;
-					break;
-				case 's':
-					str = va_arg(args, char *);
-					while (str[len] != '\0')
-					{
-						len++;
-					}
-					write(1, str, len);
-					printed = printed + len;
-					break;
-				case '%':
-					write(1, format, 1);
-					printed++;
-				default:
-					break;
-			}
 			format++;
+			if (*format == 'c')
+			{
+				c = va_arg(args, int);
+				write(1, &c, 1);
+				printed++;
+			}
+			else if (*format == 's')
+			{
+				str = va_arg(args, char *);
+				while (str[len] != '\0')
+				{
+					len++;
+				}
+				write(1, str, len);
+				printed = printed + len;
+			}
+			else if (*format == '%')
+			{
+				write(1, format, 1);
+				printed++;
+			}
 		}
+		format++;
 	}
 	va_end(args);
 	return (printed);
