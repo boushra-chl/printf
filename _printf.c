@@ -5,7 +5,7 @@
  * _printf - function that produces output according to format
  * @format: character string
  *
- * Return: Always 0
+ * Return: number of characters printed or 0
  */
 
 int _printf(const char *format, ...)
@@ -17,6 +17,10 @@ int _printf(const char *format, ...)
 	int len = 0;
 
 	va_start(args, format);
+	if (*format == '\0')
+	{
+		return (0);
+	}
 	while (*format != '\0')
 	{
 		if (*format != '%')
