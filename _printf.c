@@ -35,9 +35,11 @@ int _printf(const char *format, ...)
 						printed++;
 					break;
 				case 's':
-					str = va_args(args, char *);
-					while (str[len] != '\0');
+					str = va_arg(args, char *);
+					while (str[len] != '\0')
+					{
 						len++;
+					}
 					write(1, str, len);
 					printed = printed + len;
 					break;
