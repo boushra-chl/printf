@@ -44,8 +44,13 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
-				int n = (int)va_arg(args, int);
-				printed = printed + print_integer(n);
+				int n1 = (int)va_arg(args, int);
+				printed = printed + print_integer(n1);
+			}
+			else if (*format == 'b')
+			{
+				int n2 = (int)va_arg(args, int);
+				printed = printed + decimal_to_binary(n2);
 			}
 		}
 		format++;

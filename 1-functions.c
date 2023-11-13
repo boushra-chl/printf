@@ -21,3 +21,24 @@ int print_integer(int num)
 	return (count);
 }
 
+/**
+ * * decimal_to_binary - function that converts a decimal to binary
+ * * @num: decimal number to convert
+ * *
+ * * Return: number of characters printed
+ * */
+
+int decimal_to_binary(int num)
+{
+	int res;
+	int *rem;
+	int i = 0;
+	res = num / 2;
+	while (res != 0)
+	{
+		res = res / 2;
+		rem[i] = res % 2;
+		i++;
+	}
+}
+
