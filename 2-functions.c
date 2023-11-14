@@ -43,20 +43,22 @@ int _print_octal(int num)
 	int i, m, sum;
 	int count = 0;
 
-	m = 8;
-	for (i = 1; i < 10; i++) {
+	m = 1073741824;
+	rem[0] = num / m;
+	for (i = 1; i < 11; i++)
+	{
 		m = m / 8;
 		rem[i] = (num / m) % 8;
 	}
-
-	for (i = 0, sum = 0, count = 0; i < 10; i++) {
+	for (i = 0, sum = 0; i < 11; i++)
+	{
 		sum = sum + rem[i];
-		if (sum != 0 || i == 9) {
+		if (sum != 0 || i == 10)
+		{
 			_putchar(rem[i] + '0');
 			count++;
 		}
 	}
-
-	return count;
+	return (count);
 }
 

@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 			}
 			else if (*format == 'o')
 			{
-				int no = va_arg(args, int);
+				unsigned int no = va_arg(args, unsigned int);
 				printed = printed + _print_octal(no);
 			}
 		}
