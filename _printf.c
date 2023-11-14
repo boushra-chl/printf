@@ -62,6 +62,11 @@ int _printf(const char *format, ...)
 				unsigned int no = va_arg(args, unsigned int);
 				printed = printed + _print_octal(no);
 			}
+			else if (*format == 'x')
+			{
+				unsigned int nx = va_arg(args, unsigned int);
+				printed = printed + decimal_to_hexadecimal(nx);
+			}
 		}
 		format++;
 	}

@@ -78,9 +78,9 @@ int decimal_to_hexadecimal(unsigned int num)
 	 for (i = 1; i < 8; i++)
 	 {
 		 m = m / 16;
-		 rem[i] = (n / m) % 16
+		 rem[i] = (num / m) % 16;
 	 }
-	 for (i = 0, sum = 0, i < 8; i++)
+	 for (i = 0; sum = 0, i < 8; i++)
 	 {
 		 sum = sum + rem[i];
 		 if (sum || i == 7)
@@ -90,6 +90,7 @@ int decimal_to_hexadecimal(unsigned int num)
 			 else
 				 _putchar(rem[i] + '0' + 'a' - ':');
 		 }
+		 count++;
 	 }
 	 return (count);
 }

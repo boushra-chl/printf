@@ -12,5 +12,6 @@ int print_integer(int num);
 int decimal_to_binary(int num);
 int print_unsigned(unsigned int num);
 int _print_octal(unsigned int num);
+int decimal_to_hexadecimal(unsigned int num);
 
 #endif
