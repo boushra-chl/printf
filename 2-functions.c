@@ -61,4 +61,35 @@ int _print_octal(unsigned int num)
 	}
 	return (count);
 }
-
+/**
+ * decimal_to_hexadecimal - convert int to hex
+ * @num: int to convert
+ *
+ * Return: length of output
+ */
+int decimal_to_hexadecimal(unsigned int num)
+{
+	 int rem[8];
+	 unsigned int i, m, sum;
+	 int count;
+	 
+	 m = 268435456;
+	 rem[0] = num / m;
+	 for (i = 1; i < 8; i++)
+	 {
+		 m = m / 16;
+		 rem[i] = (n / m) % 16
+	 }
+	 for (i = 0, sum = 0, i < 8; i++)
+	 {
+		 sum = sum + rem[i];
+		 if (sum || i == 7)
+		 {
+			 if (rem[i] < 10)
+				 _putchar(rem[i] + '0');
+			 else
+				 _putchar(rem[i] + '0' + 'a' - ':');
+		 }
+	 }
+	 return (count);
+}
