@@ -37,7 +37,7 @@ int print_unsigned(unsigned int num)
  * *
  * * Return: number of digit printed
  * */
-int _print_octal(int num)
+int _print_octal(unsigned int num)
 {
 	int rem[11];
 	int i, m, sum;
