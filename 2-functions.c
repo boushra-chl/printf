@@ -7,7 +7,7 @@
  * * Return: number of digits printed
  * */
 
-int print_unsigned(int num)
+int print_unsigned(unsigned int num)
 {
 	unsigned int rem[10];
 	unsigned int i, m, sum;
