@@ -57,6 +57,11 @@ int _printf(const char *format, ...)
 				unsigned int nu = va_arg(args, unsigned int);
 				printed = printed + print_unsigned(nu);
 			}
+			else if (*format == 'o')
+			{
+				int no = va_arg(args, int);
+				printed = printed + _print_octal(no);
+			}
 		}
 		format++;
 	}
