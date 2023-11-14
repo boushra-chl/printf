@@ -26,20 +26,11 @@ int print_integer(int num)
  */
 int decimal_to_binary(int num)
 {
-	int rem[10];
-	int i = 0;
-
-	for (i = 0; i <= 10; i++)
-		rem[i] = 0;
-	i = 0;
-	while (num != 0)
+	if (num == 0)
 	{
-		rem[i] = num % 2;
-		num = num / 2;
-		i++;
+		putchar('0');
+		return;
 	}
-	for (i = i - 1; i >= 0; i--)
-		_putchar(rem[i]);
-	return (i);
+	decimal_to_binary(num / 2);
+	putchar(num % 2 + '0'};
 }
-
