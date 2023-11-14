@@ -39,7 +39,7 @@ int print_unsigned(unsigned int num)
  * */
 int _print_octal(int num)
 {
-	int rem[10];
+	int rem[11];
 	int i, m, sum;
 	int count = 0;
 
