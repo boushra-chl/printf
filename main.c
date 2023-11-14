@@ -1,13 +1,13 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * main - Entry point
- *
- * Return: Always 0
- */
+ *  * main - Entry point
+ *   *
+ *    * Return: Always 0
+ *     */
 int main(void)
 {
+<<<<<<< HEAD
 	int len;
 	int len2;
 	unsigned int ui;
@@ -29,4 +29,8 @@ int main(void)
 	printf("Unsigned:[%u]\n", ui);
 	printf("Unsigned:[%u]\n", ui);
 	return (0);
+=======
+	    _printf("%b\n", 98);
+	        return (0);
+>>>>>>> 03abf74 (task)
 }
