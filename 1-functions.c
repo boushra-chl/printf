@@ -40,20 +40,27 @@ int print_integer(int num)
 
 int decimal_to_binary(int num)
 {
-	int rem[10];
-	int i = 0;
+	unsigned int rem[32];
+	unsigned int i, m, sum;
 	int count = 0;
 
-	while (num != 0)
+	m = 2147483648;
+	rem[0] = num / m;
+
+	for (i = 1; i < 32; i++)
 	{
-		rem[i] = num % 2;
-		num = num / 2;
-		i++;
+		m = m / 2;
+		rem[i] = (num / m) % 2;
 	}
-	for (i = i - 1; i >= 0; i--)
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
 	{
-		_putchar(rem[i] + '0');
-		count++;
+		sum = sum + rem[i];
+		if (sum || i == 31)
+		{
+			_putchar('0' + rem[i]);
+			count++;
+		}
 	}
 	return (count);
 }
+
