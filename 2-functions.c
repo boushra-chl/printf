@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * * print_unsigned - function that prints an unsigned number
- * * @num: number to convert to unsigned int and print
+ * print_unsigned - function that prints an unsigned number
+ * @num: number to convert to unsigned int and print
  * *
  * * Return: number of digits printed
  * */
