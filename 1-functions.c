@@ -2,6 +2,19 @@
 #include <stdio.h>
 
 /**
+ * * _putchar - writes the character c to stdout
+ * * @c: The character to print
+ * *
+ * * Return: On success 1.
+ * * On error, -1 is returned, and errno is set appropriately.
+ * */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
+
+
+/**
  * print_integer - function that converts an integer to
  * a string and prints it
  * @num: integer to convert
@@ -24,13 +37,23 @@ int print_integer(int num)
  *
  * Return: number of characters printed
  */
+
 int decimal_to_binary(int num)
 {
-	if (num == 0)
+	int rem[10];
+	int i = 0;
+	int count = 0;
+
+	while (num != 0)
 	{
-		_putchar('0');
-		return;
+		rem[i] = num % 2;
+		num = num / 2;
+		i++;
 	}
-	decimal_to_binary(num / 2);
-	_putchar(num % 2 + '0'};
+	for (i = i - 1; i >= 0; i--)
+	{
+		_putchar(rem[i] + '0');
+		count++;
+	}
+	return (count);
 }
