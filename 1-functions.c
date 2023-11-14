@@ -28,9 +28,9 @@ int decimal_to_binary(int num)
 {
 	if (num == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return;
 	}
 	decimal_to_binary(num / 2);
-	putchar(num % 2 + '0'};
+	_putchar(num % 2 + '0'};
 }
