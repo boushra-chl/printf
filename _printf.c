@@ -52,6 +52,11 @@ int _printf(const char *format, ...)
 				int n2 = (int)va_arg(args, int);
 				printed = printed + decimal_to_binary(n2);
 			}
+			else if (*format == 'u')
+			{
+				unsigned int nu = va_arg(args, unsigned int);
+				printed = printed + print_unsigned(nu);
+			}
 		}
 		format++;
 	}
