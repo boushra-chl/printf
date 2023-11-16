@@ -65,7 +65,12 @@ int _printf(const char *format, ...)
 			else if (*format == 'x')
 			{
 				unsigned int nx = va_arg(args, unsigned int);
-				printed = printed + decimal_to_hexadecimal(nx);
+				printed = printed + decimal_to_hexadecimal(nx, 0);			
+			}
+			else if (*format == 'X')
+			{
+				unsigned int nX = va_arg(args, unsigned int);
+				printed = printed + decimal_to_hexadecimal(nX, 1);
 			}
 		}
 		format++;
