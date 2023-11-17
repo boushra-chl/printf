@@ -160,9 +160,9 @@ int print_hexadecimal(unsigned long num)
 		if (sum || i == 7)
 		{
 			if (rem[i] < 10)
-				write(1, rem[i] + '0', 1);
+				write(1, (void *) (int) (rem[i] + '0'), 1);
 			else
-				write(1, rem[i] + '0' + 'a' - ':', 1);
+				write(1, (void *) (int) (rem[i] + '0' + 'a' - ':'), 1);
 		}
 		count++;
 	}
@@ -180,7 +180,7 @@ int print_pointer(void *ptr)
 	int count = 0;
 	
 	count += write(1, "0x", 2);
-	count += _print_hex(num);
+	count += print_hexadecimal(num);
 	return count;
 }
 
