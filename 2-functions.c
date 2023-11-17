@@ -180,7 +180,7 @@ int print_pointer(void *ptr)
 	int count = 0;
 	
 	count += write(1, "0x", 2);
-	count += print_hexadecimal(num);
+	count += _print_hex(num);
 	return count;
 }
 
