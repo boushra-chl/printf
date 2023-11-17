@@ -135,3 +135,52 @@ void _print_HEX(int d)
 	else if (d == 15)
 		_putchar('F');
 }
+/**
+ * print_hexadecimal - conver int to hexadecimal
+ * @num: the int to convert
+ *
+ * Return: num of output
+ */
+int print_hexadecimal(unsigned long num)
+{
+	int rem[8];
+	unsigned long i, m, sum;
+	int count;
+	
+	m = 4294967296;
+	rem[0] = num / m;
+	for (i = 1; i < 8; i++)
+	{
+		m = m / 16;
+		rem[i] = (num / m) % 16;
+	}
+	for (i = 0, sum = 0; i < 8; i++)
+	{
+		sum = sum + rem[i];
+		if (sum || i == 7)
+		{
+			if (rem[i] < 10)
+				write(1, rem[i] + '0', 1);
+			else
+				write(1, rem[i] + '0' + 'a' - ':', 1);
+		}
+		count++;
+	}
+	return (count);
+}
+/**
+ * print_pointer - print pointer address
+ * @ptr: pointer address to print
+ *
+ * Return: number of output
+ */
+int print_pointer(void *ptr)
+{
+	unsigned long num = (unsigned long) ptr;
+	int count = 0;
+	
+	count += write(1, "0x", 2);
+	count += print_hexadecimal(num);
+	return count;
+}
+

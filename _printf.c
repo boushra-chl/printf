@@ -74,6 +74,11 @@ int _printf(const char *format, ...)
 				unsigned int nX = va_arg(args, unsigned int);
 				printed = printed + decimal_to_hexadecimal(nX, 1);
 			}
+			else if (*format == 'p')
+			{
+				void *ptr = va_arg(args, void *);
+				printed = printed + print_pointer(ptr);
+			}
 		}
 		format++;
 	}

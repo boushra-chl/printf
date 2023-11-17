@@ -15,5 +15,7 @@ int _print_octal(unsigned int num);
 int decimal_to_hexadecimal(unsigned int num, int indice);
 void _print_hex(int d);
 void _print_HEX(int d);
+int print_hexadecimal(unsigned long num);
+int print_pointer(void *ptr);
 
 #endif
